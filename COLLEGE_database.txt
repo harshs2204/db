@@ -124,10 +124,10 @@ update iamarks join average2
 on iamarks.subcode=average2.subcode
 set iamarks.finalIA=average2.final;
 
-	If FinalIA = 17 to 20 then CAT = ‘Outstanding’
-	If FinalIA = 12 to 16 then CAT = ‘Average’
-	If FinalIA< 12 then CAT = ‘Weak’
-Give these details only for 7th semester A, B, and C section students.
+	//If FinalIA = 17 to 20 then CAT = ‘Outstanding’
+	//If FinalIA = 12 to 16 then CAT = ‘Average’
+	//If FinalIA< 12 then CAT = ‘Weak’
+//Give these details only for 7th semester A, B, and C section students.
 select s.usn, s.sname, s.address, s.phone, s.gender,
        (case 
           when ia.finalIA between 17 and 20 then 'Outstanding'
