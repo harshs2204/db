@@ -118,7 +118,7 @@ select usn, subcode,
 from iamarks;
 
 create view average2 as 
-select subcode, ((highest+secondhighest)/2) as final from best_two_finder;
+select subcode,usn, ((highest+secondhighest)/2) as final from best_two_finder;
 
 update iamarks join average2 
 on iamarks.subcode=average2.subcode and iamarks.usn=average2.usn
