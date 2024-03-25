@@ -99,7 +99,7 @@ where s.usn = c.usn and ss.ssid = c.ssid and ss.sem = 3 and ss.sec='c';
 select ss.sem, ss.sec, s.gender, count(s.gender) as count 
 from student s, semsec ss, class c 
 where  s.usn =c.usn and ss.ssid = c.ssid
-group by s.gender
+group by ss.sem,ss.sec,s.gender
 order by sem;
 
 CREATE VIEW stu_test1_marks_view AS
@@ -121,7 +121,7 @@ create view average2 as
 select subcode, ((highest+secondhighest)/2) as final from best_two_finder;
 
 update iamarks join average2 
-on iamarks.subcode=average2.subcode
+on iamarks.subcode=average2.subcode and iamarks.usn=average2.usn
 set iamarks.finalIA=average2.final;
 
 	//If FinalIA = 17 to 20 then CAT = ‘Outstanding’
